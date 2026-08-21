@@ -1,0 +1,513 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Pretty Princess 💙</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Georgia, serif;
+}
+
+body {
+    background: #031b32;
+    color: white;
+}
+
+/* ---------- SCENE ---------- */
+
+.scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            to bottom,
+            #79d8f5 0%,
+            #168bb8 18%,
+            #07577e 45%,
+            #032d4b 70%,
+            #011b31 100%
+        );
+}
+
+/* Sun */
+
+.sun {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #fff1ad;
+    box-shadow:
+        0 0 50px #ffe9a0,
+        0 0 120px rgba(255,230,120,.5);
+    top: 8%;
+    right: 13%;
+    animation: sunPulse 4s infinite alternate;
+}
+
+@keyframes sunPulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+/* Water surface */
+
+.surface {
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 120%;
+    height: 40px;
+    background: rgba(255,255,255,.18);
+    filter: blur(8px);
+    animation: waves 4s infinite ease-in-out;
+}
+
+@keyframes waves {
+    0%,100% { transform: translateX(-2%); }
+    50% { transform: translateX(2%); }
+}
+
+/* Light rays */
+
+.ray {
+    position: absolute;
+    top: 18%;
+    width: 100px;
+    height: 80%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,.15),
+        transparent
+    );
+    transform-origin: top;
+    filter: blur(7px);
+}
+
+.ray1 {
+    left: 20%;
+    transform: rotate(12deg);
+}
+
+.ray2 {
+    left: 43%;
+    transform: rotate(-7deg);
+}
+
+.ray3 {
+    right: 20%;
+    transform: rotate(-15deg);
+}
+
+/* ---------- BOAT ---------- */
+
+.boat {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    animation: boatFloat 3s infinite ease-in-out;
+}
+
+@keyframes boatFloat {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-7px); }
+}
+
+.boat-body {
+    width: 300px;
+    height: 55px;
+    background: linear-gradient(#ffffff, #d9e9ef);
+    border-radius: 0 0 100px 100px;
+    box-shadow: 0 12px 20px rgba(0,0,0,.2);
+}
+
+.boat-top {
+    position: absolute;
+    width: 180px;
+    height: 55px;
+    background: white;
+    left: 60px;
+    bottom: 40px;
+    border-radius: 12px 12px 0 0;
+}
+
+.window {
+    position: absolute;
+    width: 35px;
+    height: 25px;
+    background: #2785a8;
+    border: 3px solid #dcecf2;
+    top: 10px;
+}
+
+.window:nth-child(1) { left: 25px; }
+.window:nth-child(2) { left: 75px; }
+.window:nth-child(3) { left: 125px; }
+
+/* ---------- DIVER ---------- */
+
+.diver {
+    position: absolute;
+    top: 24%;
+    left: 48%;
+    z-index: 4;
+    font-size: 65px;
+    animation: dive 8s ease-in forwards;
+}
+
+@keyframes dive {
+    0% {
+        transform: translateY(0) rotate(10deg);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translateY(180px) rotate(15deg);
+    }
+
+    100% {
+        transform: translateY(650px) rotate(20deg);
+    }
+}
+
+/* ---------- BUBBLES ---------- */
+
+.bubbles span {
+    position: absolute;
+    bottom: -30px;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 50%;
+    animation: bubbleUp linear infinite;
+}
+
+@keyframes bubbleUp {
+    from {
+        transform: translateY(0);
+        opacity: .8;
+    }
+
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+.bubbles span:nth-child(1) {
+    width: 12px;
+    height: 12px;
+    left: 20%;
+    animation-duration: 7s;
+}
+
+.bubbles span:nth-child(2) {
+    width: 8px;
+    height: 8px;
+    left: 35%;
+    animation-duration: 5s;
+}
+
+.bubbles span:nth-child(3) {
+    width: 18px;
+    height: 18px;
+    left: 55%;
+    animation-duration: 9s;
+}
+
+.bubbles span:nth-child(4) {
+    width: 10px;
+    height: 10px;
+    left: 70%;
+    animation-duration: 6s;
+}
+
+.bubbles span:nth-child(5) {
+    width: 7px;
+    height: 7px;
+    left: 82%;
+    animation-duration: 8s;
+}
+
+/* ---------- DOLPHIN ---------- */
+
+.dolphin {
+    position: absolute;
+    left: -180px;
+    top: 62%;
+    font-size: 110px;
+    z-index: 6;
+    animation: dolphinSwim 7s ease-in-out forwards;
+    filter: drop-shadow(0 15px 10px rgba(0,0,0,.25));
+}
+
+@keyframes dolphinSwim {
+    0% {
+        left: -180px;
+        transform: rotate(8deg);
+    }
+
+    40% {
+        left: 35%;
+        transform: rotate(-3deg);
+    }
+
+    70% {
+        left: 55%;
+        transform: rotate(5deg);
+    }
+
+    100% {
+        left: 110%;
+        transform: rotate(-4deg);
+    }
+}
+
+/* ---------- MESSAGE ---------- */
+
+.message {
+    position: absolute;
+    z-index: 20;
+    width: min(850px, 90%);
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    opacity: 0;
+    animation: messageAppear 2s ease forwards;
+    animation-delay: 5s;
+}
+
+@keyframes messageAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+.message .small {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: .8;
+    margin-bottom: 20px;
+}
+
+.message h1 {
+    font-size: clamp(35px, 6vw, 75px);
+    line-height: 1.05;
+    text-shadow: 0 5px 30px rgba(0,0,0,.5);
+}
+
+.message p {
+    margin-top: 25px;
+    font-size: clamp(18px, 2.5vw, 27px);
+    line-height: 1.6;
+    color: #e7faff;
+}
+
+/* ---------- FINAL CARD ---------- */
+
+.final {
+    position: absolute;
+    z-index: 30;
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: finalAppear 2s ease forwards;
+    animation-delay: 9s;
+    text-align: center;
+}
+
+.final span {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.final strong {
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255,255,255,.5);
+}
+
+@keyframes finalAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ---------- HEARTS ---------- */
+
+.hearts span {
+    position: absolute;
+    color: rgba(255,255,255,.65);
+    font-size: 20px;
+    animation: heartFloat 8s linear infinite;
+}
+
+.hearts span:nth-child(1) {
+    left: 15%;
+    bottom: -30px;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(2) {
+    left: 45%;
+    bottom: -30px;
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(3) {
+    left: 75%;
+    bottom: -30px;
+    animation-delay: 2s;
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) scale(.7);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(1.4);
+        opacity: 0;
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px) {
+
+    .sun {
+        width: 90px;
+        height: 90px;
+    }
+
+    .boat-body {
+        width: 210px;
+    }
+
+    .boat-top {
+        width: 130px;
+        left: 40px;
+    }
+
+    .diver {
+        font-size: 45px;
+    }
+
+    .dolphin {
+        font-size: 75px;
+    }
+
+    .message {
+        top: 45%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="scene">
+
+    <div class="sun"></div>
+
+    <div class="surface"></div>
+
+    <div class="ray ray1"></div>
+    <div class="ray ray2"></div>
+    <div class="ray ray3"></div>
+
+    <!-- BOAT -->
+    <div class="boat">
+        <div class="boat-top">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window"></div>
+        </div>
+        <div class="boat-body"></div>
+    </div>
+
+    <!-- DIVER -->
+    <div class="diver">
+        🤿
+    </div>
+
+    <!-- BUBBLES -->
+    <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- DOLPHIN -->
+    <div class="dolphin">
+        🐬
+    </div>
+
+    <!-- FLOATING HEARTS -->
+    <div class="hearts">
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+    </div>
+
+    <!-- ROMANTIC MESSAGE -->
+    <div class="message">
+
+        <div class="small">
+            For my pretty princess ♡
+        </div>
+
+        <h1>
+            A new adventure<br>
+            is waiting for you.
+        </h1>
+
+        <p>
+            Dive deep, discover a whole new world,<br>
+            and remember that someone is always<br>
+            incredibly proud of you. 💙
+        </p>
+
+    </div>
+
+    <!-- FINAL -->
+    <div class="final">
+        <span>From someone who loves you</span>
+        <strong>
+            Good luck, my pretty princess. 🐬♡
+        </strong>
+    </div>
+
+</div>
+
+</body>
+</html>
+```
